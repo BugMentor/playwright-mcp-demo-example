@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -27,6 +27,7 @@
     "**/*.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "playwright-report"
   ]
 }

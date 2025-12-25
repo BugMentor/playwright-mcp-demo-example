@@ -14,10 +14,8 @@ Antes de la demo, asegúrate de tener:
 
 1. **Claude Desktop App** instalada
    - Descarga desde: https://claude.ai/download
-   
 2. **Node.js** instalado (v18 o superior)
    - Verifica con: `node --version`
-   
 3. **Configuración MCP** correctamente establecida
 
 ## ⚙️ Instrucciones de Configuración
@@ -29,6 +27,7 @@ Descarga e instala Claude Desktop desde el sitio web oficial.
 ### Paso 2: Configurar MCP
 
 1. Localiza tu archivo de configuración de Claude:
+
    - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
    - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
    - **Linux**: `~/.config/Claude/claude_desktop_config.json`
@@ -37,15 +36,12 @@ Descarga e instala Claude Desktop desde el sitio web oficial.
 
 ```json
 {
-  "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-playwright"
-      ]
-    }
-  }
+	"mcpServers": {
+		"playwright": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-playwright"]
+		}
+	}
 }
 ```
 
@@ -60,7 +56,9 @@ Descarga e instala Claude Desktop desde el sitio web oficial.
 ## 🎬 Guion de Demo: "El QA Autónomo"
 
 ### Escenario
+
 Usaremos **SauceDemo (Swag Labs)** - un sitio de e-commerce demo diseñado para pruebas.
+
 - URL: https://www.saucedemo.com
 - Duración: 3-5 minutos
 - ¡No se requiere código!
@@ -70,31 +68,36 @@ Usaremos **SauceDemo (Swag Labs)** - un sitio de e-commerce demo diseñado para 
 #### **Parte 1: Navegación e Inicio de Sesión** (1 min)
 
 **Prompt a usar:**
+
 ```
-Por favor, inicia un navegador usando Playwright. Ve a 'https://www.saucedemo.com'. 
-Loguéate con el usuario 'standard_user' y la contraseña 'secret_sauce'. 
+Por favor, inicia un navegador usando Playwright. Ve a 'https://www.saucedemo.com'.
+Loguéate con el usuario 'standard_user' y la contraseña 'secret_sauce'.
 Maximiza la ventana para que podamos ver bien.
 ```
 
 **Qué sucede:**
+
 - Claude pedirá permiso para usar herramientas (apruébalo)
 - Se abrirá un navegador Chromium
 - El formulario se llenará automáticamente
 - Se ejecutará el login
 
 **Punto clave a enfatizar:**
+
 > "Fíjense que no especifiqué ningún selector CSS, XPath o ID de elemento. La IA leyó el DOM, entendió qué campo es cuál y ejecutó la acción."
 
 #### **Parte 2: Lógica de Negocio** (2 min)
 
 **Prompt a usar:**
+
 ```
-Ahora quiero que ordenes los productos por precio (del más bajo al más alto). 
-Añade al carrito los dos productos más baratos. 
+Ahora quiero que ordenes los productos por precio (del más bajo al más alto).
+Añade al carrito los dos productos más baratos.
 Luego ve al carrito y toma una captura de pantalla de la lista de ítems.
 ```
 
 **Qué sucede:**
+
 - La IA encontrará el dropdown de ordenamiento
 - Identificará los ítems más baratos
 - Hará clic en los botones "Add to cart"
@@ -102,24 +105,28 @@ Luego ve al carrito y toma una captura de pantalla de la lista de ítems.
 - Tomará una captura de pantalla y la mostrará en el chat
 
 **Punto clave a enfatizar:**
+
 > "Aquí es donde ocurre la magia. Un script tradicional se rompería si los productos cambian de orden. La IA razona: 'busca el precio más bajo' sin importar dónde aparezca en la pantalla."
 
 #### **Parte 3: Checkout y Validación** (2 min)
 
 **Prompt a usar:**
+
 ```
-Haz el checkout. Llena el formulario con datos ficticios de 'Juan Perez', 
-código postal '12345'. Finaliza la compra y dime qué mensaje de éxito 
+Haz el checkout. Llena el formulario con datos ficticios de 'Juan Perez',
+código postal '12345'. Finaliza la compra y dime qué mensaje de éxito
 aparece en pantalla.
 ```
 
 **Qué sucede:**
+
 - Los formularios se llenarán automáticamente
 - Se confirmará la compra
 - La IA leerá el mensaje de éxito
 - Recibirás una respuesta: "¡Compra exitosa, mensaje en pantalla: Thank you for your order!"
 
 **Punto clave a enfatizar:**
+
 > "El agente está tomando decisiones en tiempo real. Si mañana cambian el ID del botón, este agente probablemente seguirá funcionando sin que yo toque nada."
 
 ## 🛡️ Plan de Contingencia
@@ -127,17 +134,23 @@ aparece en pantalla.
 Las demos en vivo con LLMs pueden fallar. Aquí está tu respaldo:
 
 ### Si Claude es lento:
+
 > "El modelo está analizando el texto pesado del DOM, a veces toma unos segundos"
 
 ### Si falla un selector:
-Dile a Claude: 
+
+Dile a Claude:
+
 ```
 Te equivocaste de botón, intenta buscar el que dice 'Checkout' por texto visible
 ```
+
 > "Esto muestra la capacidad de autocorrección, que es incluso mejor que el éxito en el primer intento"
 
 ### Si todo falla:
+
 Ten un video pregrabado listo:
+
 > "Parece que el efecto demo nos atacó hoy, pero así es exactamente cómo se ve cuando corre fluido" [reproducir video]
 
 ## 📋 Credenciales de Prueba
@@ -170,9 +183,9 @@ Para SauceDemo, puedes usar estos usuarios de prueba:
 **Ing. Matías J. Magni**  
 CEO @ BugMentor
 
-- LinkedIn: [Agregar tu link]
-- Twitter: [Agregar tu link]
-- Website: [Agregar tu link]
+- LinkedIn: https://www.linkedin.com/in/matiasmagni/
+- Twitter: https://x.com/matiasmagni
+- Website: https://bugmentor.com
 
 ---
 
