@@ -7,9 +7,15 @@ yarn-error.log*
 .env
 .env.local
 test-results/
+test-results/*
 playwright-report/
+playwright-report/*
 playwright/.cache/
+playwright/.cache/*
 *.mp4
 *.webm
 screenshots/
+screenshots/*.png
 videos/
+.vscode/
+videos/*
