@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.local
+test-results/
+playwright-report/
+playwright/.cache/
+*.mp4
+*.webm
+screenshots/
+videos/
